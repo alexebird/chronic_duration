@@ -62,14 +62,14 @@ module ChronicDuration
     month = 30 * day
     year = 31557600
 
-    if seconds >= 31557600 && seconds%year < seconds%month
+    if seconds >= year
       years = seconds / year
       months = seconds % year / month
       days = seconds % year % month / day
       hours = seconds % year % month % day / hour
       minutes = seconds % year % month % day % hour / minute
       seconds = seconds % year % month % day % hour % minute
-    elsif seconds >= 60
+    else
       minutes = (seconds / 60).to_i
       seconds = seconds % 60
       if minutes >= 60
